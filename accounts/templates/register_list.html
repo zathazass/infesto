@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} 
+	<title>students_list</title>
+{% endblock %}
+{% block body %}
+<body>
+    <div class="jumbotron">
+        <div class="container-fluid">
+          {% if user.is_authenticated and user.is_superuser %}
+          <div class="table-striped"><table class="table">
+       <thead>
+           <tr>
+               <th scope="col">#</th>
+               <th scope="col">Student Name</th>
+               <th scope="col">College Name</th>
+               <th scope="col">Phone Number</th>
+           </tr>
+       </thead>
+       <tbody>
+          {% for profiles in profiles %}
+           <tr>
+               <th scope="row">{{ profiles.id }}</th>
+               <td>{{ profiles.student_name }}</td>
+               <td>{{ profiles.college }}</td>
+               <td>{{ profiles.phone }}</td>
+           </tr>{% endfor %} 
+       </tbody>
+   </table>
+</div>{% else %}
+  <h3>permission denied</h3>
+   <p>you are not admin...</p>
+    {% endif %}
+        </div>
+    </div>	
+	{% endblock %}

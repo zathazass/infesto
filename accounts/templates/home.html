@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} <title>infesto</title>
+<style type="text/css">
+    h2{
+        color: Blue !important;
+        font-weight: 500 !important;
+        background-color: aliceblue !important;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    h4{
+        color: blue !important;
+        font-weight: 600 !important;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: aquamarine !important;
+    }
+    .a{
+        margin-bottom: 20%;
+        margin-top: 10%;
+    }
+    h3{
+        color: blue !important;
+    }
+    h1{
+        color:chartreuse !important;
+    }
+    @media screen and (max-width:320px){
+        h2{
+            font-size: 20px !important;
+            font-weight: 500 !important;
+        }
+        h4{
+            font-size: 14px !important;
+            font-weight: 200;
+        }
+        h3{
+            font-size: 16px !important;
+            font-weight: 400 !important;
+        }
+        h1{
+            font-size: 20px !important;
+            
+        }
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container-fluid"
+   style="background: url('{% static 'images/2.jpg' %}');
+   background-attachment: fixed;
+   background-position: center;
+   background-size: cover;"><br>
+    <div class="row justify-content-center">
+       <div class="col-lg-8">
+            <h2>M.P.Nachimuthu M.Jaganathan Engineering College</h2>
+       </div>      
+    </div><br>
+    <div class="row justify-content-center">
+        <h4>B.Tech Information Technology</h4>
+    </div><br><br>
+    <div class="row justify-content-center">
+        <h1>National Level Technical meet</h1>
+    </div>
+    <div class="row justify-content-center">
+         <h3>Infesto 2K19</h3>
+    </div>
+    <div class="row justify-content-center">
+       {% if not user.is_authenticated %}
+        <a href="{% url 'register' %}" class="btn btn-success btn-small a">Register Today</a>
+        {% else %}
+        <a href="{% url 'logout' %}" class="btn btn-warning btn-small a">logout</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

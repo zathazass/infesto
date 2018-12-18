@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block title %} <title>events</title>
+<style type="text/css">
+    .h3{
+        background-color: azure !important;
+        
+        border-radius: 5px;
+    }
+    .cc{
+        background-color: cornsilk !important;
+    }
+    .card-title{
+        color: cadetblue !important;
+    }
+    .collg3{
+        margin-bottom: 10px !important;
+    }
+</style>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid cc"><br>
+       <div class="row justify-content-center">
+           <div class="col-lg-3">
+               <h3 class="text-center h3">Conducted Events</h3><hr>
+           </div>
+       </div>
+        <div class="row">
+           {% for events in events %}
+            <div class="col-lg-3 collg3">
+                 <div class="card">
+		<img class="card-img-top" src="{{ events.image.url }}" alt="event image">
+		<div class="card-body">
+			<h4 class="card-title">{{ events.name }}</h4>
+			<p class="card-text"><strong>Topics:</strong> {{ events.topics }}</p>
+			<p class="card-text"><strong>Team Members:</strong> {{ events.max_part_stud }}</p>
+			<p class="card-text"><strong>Time duration:</strong> {{ events.time }}</p>
+			<p class="card-text"><strong>Rules:</strong> {{ events.rules }}</p>
+			<p class="card-text"><strong>Event Hall:</strong> {{ events.venue }}</p>
+		</div>
+	</div>
+	        </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+  {% endblock %}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Infesto</title>
+    <script src="{% static 'js/typed.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<!-- Link to your css file -->
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+        *{
+            font-family: Ubuntu !important;
+        }
+        /* for container-fluid */
+         .h3{
+        background-color: azure !important;
+        
+        border-radius: 5px;
+    }
+    .cc{
+        background-color: cornsilk !important;
+    }
+    .card-title{
+        color: cadetblue !important;
+    }
+    .collg3{
+        margin-bottom: 10px !important;
+    }
+        .container-fluidss{
+            background-color: azure !important;
+            height: auto;
+            padding-top: 10px !important;
+        }
+        .col-lg-6{
+            padding-top: 50px !important;
+        }
+        h4{
+            margin-top: 20px !important;
+            
+            
+            color: #06aff8 !important;
+        }
+        p{
+            margin-top: 5% !important;
+            color: darkgreen !important;
+        }
+        .r-btn{
+            margin-top: 20% !important;
+        }
+        @media screen and (max-width:320px){
+            h1{
+            font-size: 24px !important;
+        }
+        h4{
+            font-size: 18px !important;
+            margin-top: 40px !important;
+            margin-bottom: 15px !important;
+          
+        }
+            p{
+                margin-top: 5% !important;
+            }
+        }
+        /* end container-fluid */
+        .bg-dark{
+            transition: 1000ms ease;
+            
+        }
+        .bg-dark.scrolled1{
+            background: #10caca !important;
+        }
+        .bg-dark.scrolled2{
+            background: #345674 !important;
+        }
+        .bg-dark.scrolled3{
+            background: #acac10 !important;
+        }
+        .nav-item > a , .navbar-brand{
+            
+        }
+        
+        span{
+            color: aqua !important;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+	<!-- navbar    creation-->
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <div class="container">
+         <a class="navbar-brand" href="{% url 'home' %}">Infesto</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              {% if not user.is_authenticated %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">login</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+               </li>
+              {% endif %}
+               {% if user.is_authenticated%}
+                 {% if user.is_superuser %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register_list' %}">Registered Students</a>
+               </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">logout</a>
+               </li>
+               {% else %}
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile_edit' %}">Profile</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">logout</a>
+               </li>
+                {% endif %}
+               {% endif %}
+            </ul>
+         </div>
+      </div>
+   </nav><br><br>
+    <div class="container-fluid container-fluidss">
+       <div class="row justify-content-center">
+          <div class="col-lg-6 xs-12">
+              <h3 class="text-center">M.P Nachimuthu M.Jaganathan Engineering College</h3>
+              <address class="text-center">
+                  Sudhanendhan kalvi nagar,
+                  chennimalai - 638 112,
+                  Erode.
+              </address>
+              <h5 class="text-center">B.Tech <strong>Information Technology</strong></h5> 
+              <h1 class="text-center">National level technical meet.</h1>
+               <h4 class="text-center"><strong>Infesto 2K19</strong></h4>
+          </div>
+       </div>
+       <div class="row justify-content-center">
+         <div class="col-lg-2 xs-12 text-center">
+               <a href="{% url 'register' %}" class="btn btn-success bt-small btn-block">Register Now</a>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-3 xs-12">
+                <p class="typed text-center"></p>
+           </div>
+        </div>
+   </div>
+   
+   <div class="container-fluid cc"><br>
+       <div class="row justify-content-center">
+           <div class="col-lg-3">
+               <h3 class="text-center h3">Conducted Events</h3><hr>
+           </div>
+       </div>
+        <div class="row">
+          <div class="col-lg-3 collg3">
+                 <div class="card">
+		<img class="card-img-top" src="{% static 'images/ppt.jpg' %}" alt="event image">
+		<div class="card-body">
+			<h4 class="card-title">Paper Presentation</h4>
+			<p class="card-text"><strong>Topics</strong> Any technical papers</p>
+			<p class="card-text"><strong>Team</strong> 2members only</p>
+			<p class="card-text"><strong>Duration</strong> 5minutes</p>
+			<p class="card-text"><strong>Rules</strong> Should explain both students</p>
+			<p class="card-text"><strong>Event Hall</strong> Seminar Hall</p>
+		</div>
+	</div>
+	        </div>
+					<div class="col-lg-3 collg3">
+							 <div class="card">
+	<img class="card-img-top" src="{% static 'images/debug.jpg' %}" alt="event image">
+	<div class="card-body">
+		<h4 class="card-title">Code Debugging</h4>
+		<p class="card-text"><strong>Topics</strong> C,C++,Java,Python,Data Structures,looping,error spotting</p>
+		<p class="card-text"><strong>Team</strong> 2members only</p>
+		<p class="card-text"><strong>Duration</strong> 30minutes</p>
+		<p class="card-text"><strong>Rules</strong> Don't use mobilephones</p>
+		<p class="card-text"><strong>Hall</strong> IT Lab</p>
+	</div>
+</div>
+				</div>
+				<div class="col-lg-3 collg3">
+						 <div class="card">
+<img class="card-img-top" src="{% static 'images/wifi.jpg' %}" alt="event image">
+<div class="card-body">
+	<h4 class="card-title">WiFi Hunt</h4>
+	<p class="card-text"><strong>What do</strong> Search and find wifi-hotspot</p>
+	<p class="card-text"><strong>Team</strong> 2 or 3 members</p>
+	<p class="card-text"><strong>Duration</strong> 20minutes</p>
+	<p class="card-text"><strong>Rules</strong> Don't ask our team</p>
+	<p class="card-text"><strong>Hall No</strong> 30</p>
+</div>
+</div>
+			</div>
+			<div class="col-lg-3 collg3">
+					 <div class="card">
+<img class="card-img-top" src="{% static 'images/quiz.jpeg' %}" alt="event image">
+<div class="card-body">
+<h4 class="card-title">Quiz</h4>
+<p class="card-text"><strong>Topics</strong> General and technical</p>
+<p class="card-text"><strong>Team</strong> two members per team</p>
+<p class="card-text"><strong>Duration</strong> 20 minutes</p>
+<p class="card-text"><strong>Rules</strong>Don't use mobilephones</p>
+<p class="card-text"><strong>Hall No</strong> 31</p>
+</div>
+</div>
+        </div>
+    </div>
+   	<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-3">
+					<p>Contact Us:<a href="mailto:infesto2k19@gmail.com">infesto team</a></p>
+				</div>
+			</div>
+		</div>
+	<!-- do not forget download jquery (http://jquery.com/download/)-->
+	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<!-- Bootstrap bundle for full components support -->
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'js/typed.js' %}"></script>
+	<script>
+    $(window).scroll(function(){
+        $('nav').toggleClass('scrolled1',$(this).scrollTop() > 660);
+         $('nav').toggleClass('scrolled2',$(this).scrollTop() > 1320);
+         $('nav').toggleClass('scrolled3',$(this).scrollTop() > 1980);
+    });
+        
+         var typed = new Typed(".typed", {
+    strings:["<strong>Welcome Students!</strong>","we invite you to infesto","held on 21march"],
+    typeSpeed: 40,
+    backSpeed: 40,
+    backDelay: 500,
+    startDelay: 1000,
+    loop: true, 
+  });
+    </script>
+
+</body>
+</html>
+
+
+
+
+

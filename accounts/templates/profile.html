@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} <title>thank you</title>
+<style type="text/css">
+    .details{
+        border-radius: 5px;
+        background-color: azure !important;
+        padding: 10px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                   <h3>Thank you... Your registeration completed.</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 details">
+                    <p>Team Name:   {{ user.profile.team_name }}</p>
+                    <p>Your Name:     {{ user.profile.student_name }}</p>
+                    <p>Members Name:    {{ user.profile.member_name }},{{ user.profile.member_name2 }}</p>
+                    <p>College:   {{ user.profile.college }}</p>
+                    <p>Phone:    {{ user.profile.phone }}</p>
+                    <hr>
+                    <p>Username:     {{ user.username }}</p>
+                    <p>User Email:     {{ user.email }}</p>
+                </div>
+            </div>
+        </div><br><hr><br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-2">
+                <a href="{% url 'logout' %}" class="btn btn-danger btn-small">logout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

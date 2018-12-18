@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} <title>register</title>
+<style type="text/css">
+form{
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .errorlist{
+        list-style-type: none;
+        color: red;
+        background-color: azure;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    h3{
+        color: #28a745 !important;
+    }
+</style>
+{% endblock %}
+{% block body %}
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-3">
+                    <form method="POST">
+                        <div class="form-group text-center">
+                            <h3>Register @ infesto</h3>
+                        </div>
+                        <div class="form-group">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="btn btn-success btn-small btn-block">Register now</button>
+                    </form>
+                </div>
+            </div>
+        </div><br><hr><br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-2">
+                <p>contact us: <a href="mailto:infesto2k19@gmail.com">infesto team</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
